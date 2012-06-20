@@ -16,7 +16,12 @@ def cd(dir):
     dir: the target realpath
     '''
     os.chdir(os.path.realpath(dir))
-    print("chdir:"+os.getcwd())
+
+def echo(msg):
+    print(msg)
+
+def pwd():
+    return os.getcwd()
 
 def __tar_filter__(tarinfo):
     realpath = os.path.realpath(tarinfo.name)
@@ -33,9 +38,7 @@ def __tar_add__(archive, fname, verbose):
                 print(fname)
             if os.path.isdir(fname):
                 for name in os.listdir(fname):
-                    __tar_add__(archive, os.path.join(fname, name), verbo)
-            
-
+                    __tar_add__(archive, os.path.join(fname, name), verbo)            
 def tar_create(archive, fnames, compress="gz", verbose=True):
     if os.path.exists(archive):
         os.remove(archive)
