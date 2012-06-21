@@ -6,10 +6,8 @@ from __future__ import print_function
 __author__ = "bphanzhu@gmail.com"
 __version__ = "0.1"
 
-from cd import cd
-from echo import echo, echon
-from cwd import cwd
-from tar import tar_create
+def echo(msg):
+    print(msg)
 
-
-
+def echon(msg):
+    print(msg, end="")
